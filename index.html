@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+    <link rel="stylesheet" href="src/leaflet.awesome-markers.css?3">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- ... -->
+  </head>
+  <body>
+    <!-- ... -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/2.0.0/gpx.min.js"></script>
+    <script src="https://unpkg.com/leaflet-polylinedecorator@1.6.0/dist/leaflet.polylineDecorator.js"></script>
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+    <link rel="stylesheet" href="src/style.css?2">
+    <script src="src/leaflet.awesome-markers.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <div id="container">
+        <div id="description" class="content">
+          <div class="logo">
+            <div class="content-logo">
+            <h3>Sei auch DU Teil der ...</3>
+        <h1>KIDICAL MASS <br/>Tulln </h1>
+        <h2>am 10. Mai 2025</h2>
+        <h4>14 Uhr</br>Treffpunkt: Nibelungenplatz</h4>
+        </div>
+        <span class="event-badge">10.5.<br/>14 Uhr</span>
+        </div>
+            <p>Die <b>Kidical Mass</b> ist weit mehr als eine gemeinsame Fahrradtour von radbegeisterten Kindern und Eltern. 
+              Unser Engagement gilt dem Einsatz für kinderfreundliche und lebenswerte Städte. Kinder sollen sich sicher 
+              und selbstständig mit dem Fahrrad bewegen könne</p>
+            <ul>
+          Wir fahren gemeinsam für:
+          <li>Kindergerechte Radinfrastruktur</li>
+          <li>Autofreie Zonen vor Schulen und Kindergärten</li>
+          <li>Kreuzungen kindergerecht gestalten</li>
+          <li>Radspielplätze in allen Städten</li>
+          <li>Sichere Abstellplätze für Lastenräder</li>
+        </ul>
+            <ion-icon id="scroll-down-arrow" name="chevron-down-outline"></ion-icon>
+        </div>
+    <div id="map">
+            <ion-icon id="scroll-up-arrow" name="chevron-up-outline"></ion-icon>
+    </div>
+    </div>
+   <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded');
+    var map = L.map('map').setView([51.505, -0.09], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    
+    var gpx = 'https://raw.githubusercontent.com/radlobby-tulln/kidical-mass-2025/main/kidical_mass_ride_tulln_2025_v1.gpx'; // * Make sure this path is correct!
+    // var gpx = 'http://127.0.0.1:8080/kidical_mass_ride_tulln_2024_v3.gpx'; // * Make sure this path is correct!
+
+    var redMarker = L.AwesomeMarkers.icon({
+    icon: 'pause',
+    markerColor: 'red',
+    prefix: 'ion'
+  });
+    new L.GPX(gpx, {
+      async: true,
+      parseElements: ['track', 'route'],
+      polyline_options: {
+        color: 'blue',
+        opacity: 0.75,
+        weight: 8,
+        lineCap: 'round',
+        lineJoin: 'round',
+        smoothFactor: 3
+      }
+    }).on('loaded', function(e) {
+      map.fitBounds(e.target.getBounds());
+      var layers = e.target.getLayers()[0].getLayers(); // Get all layers
+    layers.forEach(function(layer) {
+      console.log('Layer:', layer);
+      if (layer instanceof L.Polyline && !(layer instanceof L.Polygon)) {
+        // This ensures we're working with polylines but not polygons
+        console.log('Applying decorator to polyline');
+        L.polylineDecorator(layer, {
+          patterns: [
+            // Defines the arrow pattern
+            {repeat: '8%', symbol: L.Symbol.arrowHead({pixelSize: 15, polygon: false, pathOptions: {stroke: true, color: 'red'}}) }
+          ]
+        }).addTo(map);
+      }});
+  
+    }).on('error', function(e) {
+      console.error('Error loading GPX file:', e);
+    }).addTo(map);
+    var marker_1 = L.marker([48.330094049104645, 16.041703778009644], {icon: redMarker}).addTo(map);
+    L.marker([48.33265975619225, 16.056877158048938], {icon: redMarker}).addTo(map);
+    L.marker([48.33140248564614, 16.065708447489037], {icon: redMarker}).addTo(map);
+    // L.marker([48.3312155, 16.0521442], {icon: redMarker}).addTo(map);
+    //L.marker([48.331106, 16.053361], {icon: redMarker}).addTo(map);
+  });
+  
+    document.getElementById('scroll-down-arrow').addEventListener('click', function() {
+      console.log('Scrolling to map');
+        document.getElementById('map').scrollIntoView({ behavior: 'smooth' });
+    });
+    document.getElementById('scroll-up-arrow').addEventListener('click', function() {
+      console.log('Scrolling to description');
+        document.getElementById('description').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script> 
+  </body>
+</html>

@@ -86,9 +86,6 @@ h1, h3 {
     #scroll-up-arrow {
         top: 8vh; /* Adjust as needed for smaller screens */
     }
-    #route-notice {
-        left: 50%; /* Center on mobile */
-    }
 }
 
 .event-badge {
@@ -143,3 +140,10 @@ li::marker {
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
+/* Responsive positioning for small screens */
+@media (max-width: 600px) {
+    #route-notice {
+        left: 50%; /* Center on mobile */
+	top: 20%
+    }
+}

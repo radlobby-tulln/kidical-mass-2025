@@ -125,3 +125,17 @@ li::marker {
 .small-text {
     font-size: 0.8em;
 }
+
+#route-notice {
+    position: absolute;
+    top: 5%;
+    left: 15%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 235, 59, 0.7);
+    color: #000;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 1.53em;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}

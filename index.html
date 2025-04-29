@@ -42,7 +42,6 @@
         </div>
     <div id="map">
             <ion-icon id="scroll-up-arrow" name="chevron-up-outline"></ion-icon>
-            <div id="route-notice">Vorläufige Route!</div>
     </div>
     </div>
    <script>
@@ -53,7 +52,7 @@
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
     
-    var gpx = 'https://raw.githubusercontent.com/radlobby-tulln/kidical-mass-2025/main/kidical_mass_ride_tulln_2025_v1.gpx'; // * Make sure this path is correct!
+    var gpx = 'https://raw.githubusercontent.com/radlobby-tulln/kidical-mass-2025/main/kidical_mass_ride_tulln_2025_v2.gpx'; // * Make sure this path is correct!
     // var gpx = 'http://127.0.0.1:8080/kidical_mass_ride_tulln_2024_v3.gpx'; // * Make sure this path is correct!
 
     var redMarker = L.AwesomeMarkers.icon({
@@ -91,7 +90,7 @@
     }).on('error', function(e) {
       console.error('Error loading GPX file:', e);
     }).addTo(map);
-    var marker_1 = L.marker([48.32980013011908, 16.042511504260876], {icon: redMarker}).addTo(map);
+    var marker_1 = L.marker([48.33052775456583, 16.04520645166116], {icon: redMarker}).addTo(map);
     L.marker([48.33244247176701, 16.05688654229187], {icon: redMarker}).addTo(map);
     L.marker([48.33140248564614, 16.065708447489037], {icon: redMarker}).addTo(map);
     // L.marker([48.3312155, 16.0521442], {icon: redMarker}).addTo(map);

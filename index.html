@@ -22,19 +22,19 @@
             <div class="content-logo">
             <h3>Sei auch DU Teil der ...</3>
         <h1>KIDICAL MASS <br/>Tulln </h1>
-        <h2>am 10. Mai 2025</h2>
+        <h2>am 18. Oktober 2025</h2>
         <h4>14 Uhr</br>Treffpunkt: Nibelungenplatz</h4>
         </div>
-        <span class="event-badge">10.5.<br/>14 Uhr</span>
+        <span class="event-badge">18.10.<br/>14 Uhr</span>
         </div>
-            <p>Die <b>Kidical Mass</b> ist weit mehr als eine gemeinsame Fahrradtour von radbegeisterten Kindern und Eltern. 
-              Unser Engagement gilt dem Einsatz für kinderfreundliche und lebenswerte Städte. Kinder sollen sich sicher 
-              und selbstständig mit dem Fahrrad bewegen könne</p>
+            <p>Die <b>Kidical Mass</b> ist weit mehr als eine gemeinsame Fahrradtour von radbegeisterten Kindern und Eltern.
+              Unser Engagement gilt dem Einsatz für kinderfreundliche und lebenswerte Städte. Kinder sollen sich sicher
+              und selbstständig mit dem Fahrrad bewegen können.</p>
             <ul>
           Wir fahren gemeinsam für:
           <li>Kindergerechte Radinfrastruktur</li>
           <li>Autofreie Zonen vor Schulen und Kindergärten</li>
-          <li>Kreuzungen kindergerecht gestalten</li>
+          <li>kindergerechte Kreuzungen</li>
           <li>Radspielplätze in allen Städten</li>
           <li>Sichere Abstellplätze für Lastenräder</li>
         </ul>
@@ -51,7 +51,7 @@
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
-    
+
     var gpx = 'https://raw.githubusercontent.com/radlobby-tulln/kidical-mass-2025/main/kidical_mass_ride_tulln_2025_v2.gpx'; // * Make sure this path is correct!
     // var gpx = 'http://127.0.0.1:8080/kidical_mass_ride_tulln_2024_v3.gpx'; // * Make sure this path is correct!
 
@@ -86,7 +86,7 @@
           ]
         }).addTo(map);
       }});
-  
+
     }).on('error', function(e) {
       console.error('Error loading GPX file:', e);
     }).addTo(map);
@@ -96,7 +96,7 @@ L.marker([48.33359316881362, 16.05899677169789], {icon: redMarker}).addTo(map);
     // L.marker([48.3312155, 16.0521442], {icon: redMarker}).addTo(map);
     //L.marker([48.331106, 16.053361], {icon: redMarker}).addTo(map);
   });
-  
+
     document.getElementById('scroll-down-arrow').addEventListener('click', function() {
       console.log('Scrolling to map');
         document.getElementById('map').scrollIntoView({ behavior: 'smooth' });
@@ -105,6 +105,6 @@ L.marker([48.33359316881362, 16.05899677169789], {icon: redMarker}).addTo(map);
       console.log('Scrolling to description');
         document.getElementById('description').scrollIntoView({ behavior: 'smooth' });
     });
-  </script> 
+  </script>
   </body>
 </html>

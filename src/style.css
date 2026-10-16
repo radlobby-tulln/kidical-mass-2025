@@ -3,7 +3,7 @@ body, html {
     padding: 0;
     height: 100%;
     font-family: Arial, sans-serif;
-    background-color: #D32F2F;
+    background-color: #3e63b877;
 }
 
 #container {
@@ -12,7 +12,7 @@ body, html {
     /*height: 100vh;*/
     justify-content: center;
     align-items: center; /* Center child elements horizontally */
-    background-color: #D32F2F;
+    background-color: #3e63b877;
 }
 
 #description {
@@ -26,7 +26,7 @@ body, html {
     position: relative;
     padding-left: 20px;
     padding-right: 20px;
-    background-color: #3e63b8;
+    background-color: #D32F2F;
     font-size: 1.2em;
 }
 
@@ -90,7 +90,7 @@ h1, h3 {
 
 .event-badge {
     display: inline-block;
-    background-color: #f3733d;
+    background-color: #6B1E1A;
     font-size: 1.3em;
     color: white;
     border-radius: 50%;

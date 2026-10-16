@@ -3,7 +3,7 @@ body, html {
     padding: 0;
     height: 100%;
     font-family: Arial, sans-serif;
-    background-color: #3e63b877;
+    background-color: #D32F2F;
 }
 
 #container {
@@ -12,7 +12,7 @@ body, html {
     /*height: 100vh;*/
     justify-content: center;
     align-items: center; /* Center child elements horizontally */
-    background-color: #3e63b877;
+    background-color: #D32F2F;
 }
 
 #description {
